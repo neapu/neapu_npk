@@ -17,5 +17,8 @@ add_library(${PROJECT_NAME} STATIC
         NPKPublic.cpp
 )
 find_package(ZLIB REQUIRED)
-include_directories(${ZLIB_INCLUDE_DIRS})
+target_include_directories(${PROJECT_NAME} PUBLIC ${ZLIB_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} PUBLIC ${ZLIB_LIBRARIES})
+message("LOGGER_INCLUDE_DIR " ${LOGGER_INCLUDE_DIR})
+target_include_directories(${PROJECT_NAME} PUBLIC ${LOGGER_INCLUDE_DIR})
+target_link_libraries(${PROJECT_NAME} PUBLIC logger)
