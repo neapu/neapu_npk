@@ -8,7 +8,7 @@
 #include <zlib.h>
 #include <format>
 
-namespace neapu_ex_npk {
+namespace neapu {
 NPKFrameHandler::NPKFrameHandler(std::shared_ptr<NPKPaletteManager> paletteManager)
     : m_paletteManager(paletteManager)
 {
@@ -209,4 +209,4 @@ std::shared_ptr<NPKMatrix> NPKFrameHandler::toMatrixV4V6(const uint8_t* data, in
     }
     return matrix;
 }
-} // neapu_ex_npk
+} // neapu

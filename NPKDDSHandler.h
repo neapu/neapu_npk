@@ -10,7 +10,7 @@
 
 #include "NPKPublic.h"
 
-namespace neapu_ex_npk {
+namespace neapu {
 enum DDSPixelDTXFormat:uint32_t {
     DXT_UNKNOWN = 0x00000000U,
     DXT1 = 0x31545844U,
@@ -56,6 +56,6 @@ private:
     NPKDDSIndex m_index;
     uint8_t* m_data{nullptr};
 };
-} // neapu_ex_npk
+} // neapu
 
 #endif //NPKDDSHANDLER_H

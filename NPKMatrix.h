@@ -9,7 +9,7 @@
 
 #include "NPKPublic.h"
 
-namespace neapu_ex_npk {
+namespace neapu {
 class NPKMatrix {
 public:
     NPKMatrix() = default;
@@ -40,6 +40,6 @@ private:
     uint32_t m_offsetY{0};
     NPKColor* m_data{nullptr};
 };
-} // neapu_ex_npk
+} // neapu
 
 #endif //NPKMATRIX_H

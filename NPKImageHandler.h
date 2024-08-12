@@ -10,7 +10,7 @@
 
 #include "NPKPublic.h"
 
-namespace neapu_ex_npk {
+namespace neapu {
 #pragma pack(push, 1)
 typedef struct NPKImageIndex {
     uint32_t offset;
@@ -94,6 +94,6 @@ private:
     std::shared_ptr<NPKPaletteManager> m_paletteManager{nullptr};
 };
 
-} // neapu_ex_npk
+} // neapu
 
 #endif //NPKIMAGEHANDLER_H

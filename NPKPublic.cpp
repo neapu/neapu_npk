@@ -1,6 +1,6 @@
 #include "NPKPublic.h"
 
-std::string neapu_ex_npk::colorTypeToString(const ColorType type)
+std::string neapu::colorTypeToString(const ColorType type)
 {
     switch (type) {
         case ColorType::CL_UNKNOWN:

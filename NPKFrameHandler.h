@@ -9,7 +9,7 @@
 
 #include "NPKMatrix.h"
 
-namespace neapu_ex_npk {
+namespace neapu {
 #pragma pack(push, 1)
 typedef struct NPKFrameIndex {
     ColorType colorType = CL_UNKNOWN; // 颜色系统 0x10 (ARGB8888) Ox0F (ARGB4444) 0x0E (ARGB1555); 0x11 (链接帧)
@@ -76,6 +76,6 @@ private:
     uint8_t* m_data{nullptr}; // 为了加载时不等待太久，在真正读取帧画面时才解压缩
     std::shared_ptr<NPKPaletteManager> m_paletteManager{nullptr};
 };
-} // neapu_ex_npk
+} // neapu
 
 #endif //NPKFRAMEHANDLER_H

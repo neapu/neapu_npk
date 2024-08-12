@@ -5,7 +5,7 @@
 #include "NPKMatrix.h"
 #include "logger.h"
 
-namespace neapu_ex_npk {
+namespace neapu {
 NPKMatrix::~NPKMatrix()
 {
     if (m_data) {
@@ -66,4 +66,4 @@ std::shared_ptr<NPKMatrix> NPKMatrix::createMatrix(const uint32_t width, const u
     matrix->reset(width, height, canvasWidth, canvasHeight, offsetX, offsetY);
     return matrix;
 }
-} // neapu_ex_npk
+} // neapu

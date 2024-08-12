@@ -10,20 +10,20 @@
 #include "NPKMatrix.h"
 
 namespace {
-std::string DDSPixelDTXFormatToString(const neapu_ex_npk::DDSPixelDTXFormat format)
+std::string DDSPixelDTXFormatToString(const neapu::DDSPixelDTXFormat format)
 {
     switch (format) {
-    case neapu_ex_npk::DDSPixelDTXFormat::DXT1: return "DXT1";
-    case neapu_ex_npk::DDSPixelDTXFormat::DXT2: return "DXT2";
-    case neapu_ex_npk::DDSPixelDTXFormat::DXT3: return "DXT3";
-    case neapu_ex_npk::DDSPixelDTXFormat::DXT4: return "DXT4";
-    case neapu_ex_npk::DDSPixelDTXFormat::DXT5: return "DXT5";
+    case neapu::DDSPixelDTXFormat::DXT1: return "DXT1";
+    case neapu::DDSPixelDTXFormat::DXT2: return "DXT2";
+    case neapu::DDSPixelDTXFormat::DXT3: return "DXT3";
+    case neapu::DDSPixelDTXFormat::DXT4: return "DXT4";
+    case neapu::DDSPixelDTXFormat::DXT5: return "DXT5";
     default: return "Unknown";
     }
 }
 }
 
-namespace neapu_ex_npk {
+namespace neapu {
 constexpr auto DXT1_UNIT_LENGTH = 8;
 constexpr auto DXT3_UNIT_LENGTH = 16;
 constexpr auto DXT5_UNIT_LENGTH = 16;
@@ -366,4 +366,4 @@ std::shared_ptr<NPKMatrix> NPKDDSHandler::DXTxToMatrix(const uint8_t* imgData, c
     }
     return matrex;
 }
-} // neapu_ex_npk
+} // neapu

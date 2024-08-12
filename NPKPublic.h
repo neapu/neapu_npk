@@ -3,7 +3,7 @@
 #include <cstdint>
 #include <string>
 
-namespace neapu_ex_npk {
+namespace neapu {
 enum ColorType: uint32_t {
     CL_UNKNOWN = 0x00,
     CL_V4_FMT = 0x01,

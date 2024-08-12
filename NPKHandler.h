@@ -10,7 +10,7 @@
 #include <vector>
 #include <string>
 
-namespace neapu_ex_npk {
+namespace neapu {
 using funcSHA256 = std::function<bool(const uint8_t* source, const uint64_t sourceLen, uint8_t* dst, const uint64_t dstLen)>;
 #pragma pack(push, 1)
 typedef struct NPKHeader {

@@ -6,7 +6,7 @@
 
 #include "logger.h"
 
-namespace neapu_ex_npk {
+namespace neapu {
 NPKPaletteManager::NPKPaletteManager()
 = default;
 
@@ -98,4 +98,4 @@ int NPKPaletteManager::NPKPalette::loadPalette(const uint8_t* data, int dataLen)
 
     return sizeof(uint32_t) + m_colorCount * 4;
 }
-} // neapu_ex_npk
+} // neapu

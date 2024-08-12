@@ -9,7 +9,7 @@
 
 #include "logger.h"
 
-namespace neapu_ex_npk {
+namespace neapu {
 int NPKImageHandler::loadIndex(const uint8_t* data, const uint64_t dataLen)
 {
     if (dataLen < sizeof(NPKImageHeader)) {
@@ -296,4 +296,4 @@ std::shared_ptr<NPKFrameHandler> NPKImageHandler::traceFrame(uint32_t index, uin
     }
     return frame;
 }
-} // neapu_ex_npk
+} // neapu

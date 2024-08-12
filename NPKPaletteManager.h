@@ -9,7 +9,7 @@
 #include <vector>
 #include <memory>
 
-namespace neapu_ex_npk {
+namespace neapu {
 class NPKPaletteManager {
 public:
     NPKPaletteManager();
@@ -36,6 +36,6 @@ private:
     int m_paletteCount{0};
     std::vector<std::shared_ptr<NPKPalette>> m_palette;
 };
-} // neapu_ex_npk
+} // neapu
 
 #endif //NPKPALETTE_H

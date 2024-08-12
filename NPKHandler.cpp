@@ -10,10 +10,10 @@
 #define fopen_s(pFile, filename, mode) (((*(pFile)) = fopen((filename), (mode))) == NULL)
 #endif
 
-namespace neapu_ex_npk {
+namespace neapu {
 funcSHA256 NPKHandler::sha256 = nullptr;
-}
-bool neapu_ex_npk::NPKHandler::loadNPK(const std::string& path)
+
+bool NPKHandler::loadNPK(const std::string& path)
 {
     if (sha256 == nullptr) {
         LOG_ERROR << "SHA256 function is not set";
@@ -101,16 +101,17 @@ bool neapu_ex_npk::NPKHandler::loadNPK(const std::string& path)
     return true;
 }
 
-uint32_t neapu_ex_npk::NPKHandler::getImageCount() const
+uint32_t neapu::NPKHandler::getImageCount() const
 {
     return m_header.imgCount;
 }
 
-std::shared_ptr<neapu_ex_npk::NPKImageHandler> neapu_ex_npk::NPKHandler::getImage(uint32_t index) const
+std::shared_ptr<neapu::NPKImageHandler> neapu::NPKHandler::getImage(uint32_t index) const
 {
     if (index >= m_images.size()) {
         return nullptr;
     }
 
     return m_images[index];
+}
 }
