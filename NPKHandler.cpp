@@ -9,9 +9,54 @@
 #ifndef _WIN32
 #define fopen_s(pFile, filename, mode) (((*(pFile)) = fopen((filename), (mode))) == NULL)
 #endif
+#ifdef USE_OPENSSL
+#include <openssl/evp.h>
+#endif
 
 namespace neapu {
+#ifdef USE_OPENSSL
+funcSHA256 NPKHandler::sha256 = [](const uint8_t* source, const uint64_t sourceLen, uint8_t* dst, const uint64_t dstLen) {
+    EVP_MD_CTX* ctx = EVP_MD_CTX_new();
+    if (ctx == nullptr) {
+        LOG_ERROR << "Failed to create EVP_MD_CTX";
+        return false;
+    }
+
+    const EVP_MD* md = EVP_sha256();
+    if (md == nullptr) {
+        LOG_ERROR << "Failed to get EVP_sha256";
+        EVP_MD_CTX_free(ctx);
+        return false;
+    }
+
+    int ret = EVP_DigestInit_ex(ctx, md, nullptr);
+    if (ret != 1) {
+        LOG_ERROR << "Failed to init digest";
+        EVP_MD_CTX_free(ctx);
+        return false;
+    }
+
+    ret = EVP_DigestUpdate(ctx, source, sourceLen);
+    if (ret != 1) {
+        LOG_ERROR << "Failed to update digest";
+        EVP_MD_CTX_free(ctx);
+        return false;
+    }
+
+    auto mdLen = static_cast<unsigned int>(dstLen);
+    ret = EVP_DigestFinal_ex(ctx, dst, &mdLen);
+    if (ret != 1) {
+        LOG_ERROR << "Failed to final digest";
+        EVP_MD_CTX_free(ctx);
+        return false;
+    }
+
+    EVP_MD_CTX_free(ctx);
+    return true;
+};
+#else
 funcSHA256 NPKHandler::sha256 = nullptr;
+#endif
 
 bool NPKHandler::loadNPK(const std::string& path)
 {
