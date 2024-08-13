@@ -172,6 +172,10 @@ std::string NPKImageHandler::getFrameDDSClipInfo(const uint32_t index) const
 
     return frame->ddsClipInfo();
 }
+std::vector<uint8_t> NPKImageHandler::getFramePngData(uint32_t index, int paletteIndex) const
+{
+    return getFrameMatrix(index, paletteIndex)->toPng();
+}
 
 int NPKImageHandler::loadNPKImage(const uint8_t* data, const uint32_t dataLen)
 {

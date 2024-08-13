@@ -77,6 +77,7 @@ public:
     bool getFrameIsDDS(uint32_t index) const;
     uint32_t getFrameDDSIndex(uint32_t index) const;
     std::string getFrameDDSClipInfo(uint32_t index) const;
+    std::vector<uint8_t> getFramePngData(uint32_t index, int paletteIndex = 0) const;
 
 private:
     int loadNPKImage(const uint8_t* data, uint32_t dataLen);

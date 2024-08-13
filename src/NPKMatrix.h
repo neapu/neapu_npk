@@ -6,7 +6,7 @@
 #define NPKMATRIX_H
 
 #include <memory>
-
+#include <vector>
 #include "NPKPublic.h"
 
 namespace neapu {
@@ -14,15 +14,16 @@ class NPKMatrix {
 public:
     NPKMatrix() = default;
     virtual ~NPKMatrix();
-    int width() const { return m_width; }
-    int height() const { return m_height; }
-    int canvasWidth() const { return m_canvasWidth; }
-    int canvasHeight() const { return m_canvasHeight; }
+    uint32_t width() const { return m_width; }
+    uint32_t height() const { return m_height; }
+    uint32_t canvasWidth() const { return m_canvasWidth; }
+    uint32_t canvasHeight() const { return m_canvasHeight; }
     const NPKColor* data() const { return m_data; }
     bool isEmpty() const { return m_width == 0 || m_height == 0; }
+    std::vector<uint8_t> toPng() const;
 
-    void reset(const uint32_t width, const uint32_t height, const uint32_t canvasWidth = 0, const uint32_t canvasHeight = 0, const
-                uint32_t offsetX = 0, const uint32_t offsetY = 0);
+    void reset(uint32_t width, uint32_t height, uint32_t canvasWidth = 0, uint32_t canvasHeight = 0, uint32_t offsetX = 0,
+               uint32_t offsetY = 0);
     void setPixel(const uint32_t x, const uint32_t y, NPKColor color);
 
     std::shared_ptr<NPKMatrix> clip(const uint32_t left, const uint32_t top, const uint32_t right, const uint32_t bottom,

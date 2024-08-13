@@ -64,6 +64,11 @@ bool NPKHandler::loadNPK(const std::string& path)
         LOG_ERROR << "SHA256 function is not set";
         return false;
     }
+
+    if (m_images.size() > 0) {
+        m_images.clear();
+    }
+
     FILE* file = nullptr;
     int ret = fopen_s(&file, path.c_str(), "rb");
     if (ret != 0) {
