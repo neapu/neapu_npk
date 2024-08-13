@@ -4,7 +4,9 @@
 
 #include "NPKMatrix.h"
 #include "logger.h"
+#ifdef USE_PNG
 #include <png.h>
+#endif
 
 namespace neapu {
 NPKMatrix::~NPKMatrix()
@@ -18,6 +20,7 @@ std::vector<uint8_t> NPKMatrix::toPng() const
 {
     FUNC_TRACE;
     std::vector<uint8_t> pngData;
+#ifdef USE_PNG
     if (isEmpty()) {
         return pngData;
     }
@@ -60,6 +63,7 @@ std::vector<uint8_t> NPKMatrix::toPng() const
 
     // 释放资源
     png_destroy_write_struct(&pngPtr, &infoPtr);
+#endif
     return pngData;
 }
 
